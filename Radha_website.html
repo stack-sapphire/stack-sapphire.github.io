@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radha Gupta | IIT Delhi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Indie+Flower&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* ---------------------------------- */
+        /* 1. STYLES FOR THE BACKGROUND & COLORS */
+        /* ---------------------------------- */
+        :root {
+            /* Soft Pastel Color Palette */
+            --color-teal: #A7C9B1;      /* Muted Teal */
+            --color-green: #D0F0C0;     /* Pastel Light Green */
+            --color-blue: #B0E0E6;      /* Soft Sky Blue */
+            --color-text: #333333;      /* Dark Charcoal for readability */
+            --color-accent: #6C5CE7;    /* A nice purple for links/buttons */
+        }
+
+        body {
+            /* FUN FONT: Indie Flower for main body text */
+            font-family: 'Indie Flower', cursive;
+            margin: 0;
+            padding: 0;
+            color: var(--color-text);
+            position: relative;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Ombre Background Animation */
+        .background-ombre {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, var(--color-teal), var(--color-green), var(--color-blue));
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -2;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ---------------------------------- */
+        /* 2. STYLES FOR CONTENT LAYOUT */
+        /* ---------------------------------- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 0;
+            border-radius: 15px;
+        }
+
+        .text-content {
+            flex: none;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .image-placeholder {
+            order: -1; 
+            max-width: 198px; 
+            height: 198px; 
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px; 
+        }
+
+        /* FIX: Style for the placeholder icon */
+        .image-placeholder .fa-ghost {
+            color: rgba(255, 255, 255, 0.9); /* White/translucent ghost */
+            font-size: 80px; /* Large icon size */
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Removed image-placeholder img styles as we now use an icon */
+
+        /* ---------------------------------- */
+        /* 3. TYPOGRAPHY & LINKS */
+        /* ---------------------------------- */
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 3.0em; 
+            margin-bottom: 5px;
+            font-weight: 400; 
+            color: var(--color-accent);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.15); 
+        }
+
+        .intro-text p {
+            font-family: 'Indie Flower', cursive;
+            line-height: 1.8;
+            font-size: 1.1em; 
+            margin-bottom: 20px;
+            white-space: pre-wrap; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            text-align: center; 
+        }
+
+        .contact-links {
+            margin-top: 30px;
+            padding: 20px 0;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center; 
+        }
+
+        .contact-links a {
+            font-family: 'Indie Flower', cursive; 
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 400; 
+            padding: 9px 16.5px; 
+            border: 1px solid var(--color-accent); 
+            border-radius: 6px; 
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            font-size: 1.2em; 
+        }
+
+        .contact-links a:hover {
+            background-color: var(--color-accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        /* ---------------------------------- */
+        /* 4. MOVING BUBBLES ANIMATION (No change needed) */
+        /* ---------------------------------- */
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .bubble {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            animation: animateBubble 25s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
+        }
+
+        /* Pre-defined bubbles for immediate effect */
+        .bubble:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; animation-duration: 10s; }
+        .bubble:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .bubble:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; animation-duration: 15s; }
+        .bubble:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+        .bubble:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; animation-duration: 10s; }
+
+        @keyframes animateBubble {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 50%; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
+        }
+
+        /* ---------------------------------- */
+        /* 5. RESPONSIVENESS */
+        /* ---------------------------------- */
+        @media (max-width: 800px) {
+            .intro-section {
+                padding: 30px 20px;
+            }
+            .image-placeholder {
+                max-width: 165px; 
+                height: 165px;
+                margin: 0 auto 20px auto;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            .intro-text p {
+                font-size: 1.0em;
+            }
+            .contact-links {
+                justify-content: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-ombre"></div>
+
+    <ul class="bubbles" id="bubbles-list">
+        <li class="bubble"></li>
+        <li class="bubble"></li>
+        <li class="bubble"></li>
+        <li class="bubble"></li>
+        <li class="bubble"></li>
+    </ul>
+
+    <div class="container">
+
+        <header class="intro-section">
+            
+            <div class="image-placeholder">
+                <i class="fas fa-ghost"></i>
+            </div>
+
+            <div class="text-content">
+                <h1>Radha Gupta</h1>
+                <div class="intro-text">
+                    <p>
+                        Print("hello!")
+                        I’m **Radha Gupta**, a B.Tech. sophomore at IIT Delhi, pursuing Mechanical Engineering with a focus on Production and Industrial Engineering (PnI).
+                        I enjoy working at the intersection of technology, logic, and creativity. My interests span coding, mathematics, and algorithm design, and I’m always eager to explore ideas that expand my perspective and push me to think differently.
+                        Beyond engineering, I’m actively involved in the Economics Club and the Debating Society at IIT Delhi, where I’ve developed a strong foundation in analytical reasoning, strategy, and communication. I also contribute to the iGEM team, exploring the exciting world of synthetic biology and its real world applications.
+                        I’m always open to opportunities that bring together technical depth and creative problem solving , especially in the fields of Technology, Finance, and Innovation.
+                    </p>
+                </div>
+            </div>
+
+        </header>
+
+        <section class="contact-links">
+            <a href="https://www.linkedin.com/in/radha-gupta-a48095325" target="_blank">
+                <span style="font-size: 1.2em;">🔗</span> LinkedIn Profile
+            </a>
+            
+            <a href="https://github.com/stack-sapphire" target="_blank">
+                <span style="font-size: 1.2em;">💻</span> GitHub Profile
+            </a>
+            
+            <a href="mailto:radha.gupta.mech.iitd@gmail.com">
+                <span style="font-size: 1.2em;">📧</span> radha.gupta.mech.iitd@gmail.com
+            </a>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bubblesList = document.getElementById('bubbles-list');
+            const numAdditionalBubbles = 10; 
+
+            for (let i = 0; i < numAdditionalBubbles; i++) {
+                const bubble = document.createElement('li');
+                bubble.className = 'bubble';
+                
+                const size = Math.random() * 80 + 20; 
+                const left = Math.random() * 100;
+                const delay = Math.random() * 15; 
+                const duration = Math.random() * 15 + 10; 
+
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                bubble.style.left = left + '%';
+                bubble.style.animationDelay = delay + 's';
+                bubble.style.animationDuration = duration + 's';
+                
+                bubblesList.appendChild(bubble);
+            }
+        });
+    </script>
+
+</body>
+</html>
